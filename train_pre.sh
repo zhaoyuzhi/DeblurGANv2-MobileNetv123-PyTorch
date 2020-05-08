@@ -1,11 +1,10 @@
 python train.py \
 --pre_train True \
---baseroot_train_blur "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/GOPRO_3840FPS_AVG_3-21/train/blur" \
---baseroot_train_sharp "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/GOPRO_3840FPS_AVG_3-21/train/sharp" \
---baseroot_val_blur "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/GOPRO_3840FPS_AVG_3-21/test/blur" \
---baseroot_val_sharp "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/GOPRO_3840FPS_AVG_3-21/test/sharp" \
+--baseroot_train_blur "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/train/blur" \
+--baseroot_train_sharp "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/train/sharp" \
+--baseroot_val_blur "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/test/blur" \
+--baseroot_val_sharp "/mnt/lustre/zhaoyuzhi/dataset/deblur/GOPRO/test/sharp" \
 --network_type "MobileNetv2" \
---fpn_load_name "./trained_models/mobilenetv2_rgb_epoch150_bs256.pth" \
 --perceptualnet_name "./trained_models/vgg16_pretrained.pth" \
 --load_name "" \
 --multi_gpu False \

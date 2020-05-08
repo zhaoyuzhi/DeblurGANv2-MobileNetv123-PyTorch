@@ -41,54 +41,66 @@ def weights_init(net, init_type = 'normal', init_gain = 0.02):
     
 def get_generator(opt):
     if opt.network_type == 'ResNet50_BN':
+        fpn_load_name = './trained_models/resnet50_bn_rgb_epoch150_bs256.pth'
         fpn = ResNet_BN_FPN(Bottleneck_BN, [3, 4, 3, 3])
         n1, n2, n3, n4, n5 = 64, 256, 512, 1024, 2048
         deblurganv2 = DeblurGANv2(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'ResNet50_IN':
+        fpn_load_name = './trained_models/resnet50_in_rgb_epoch150_bs256.pth'
         fpn = ResNet_IN_FPN(Bottleneck_IN, [3, 4, 3, 3])
         n1, n2, n3, n4, n5 = 64, 256, 512, 1024, 2048
         deblurganv2 = DeblurGANv2(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv1':
+        fpn_load_name = './trained_models/mobilenetv1_rgb_epoch150_bs256.pth'
         fpn = MobileNetV1_FPN()
         n1, n2, n3, n4, n5 = 64, 128, 256, 512, 1024
         deblurganv2 = DeblurGANv2(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv2':
-        fpn = MobileNetV2()
+        fpn_load_name = './trained_models/mobilenetv2_rgb_epoch150_bs256.pth'
+        fpn = MobileNetV2_FPN()
         n1, n2, n3, n4, n5 = 16, 24, 32, 96, 320
         deblurganv2 = DeblurGANv2(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv3_large':
+        fpn_load_name = './trained_models/mobilenetv3_large_rgb_epoch150_bs256.pth'
         fpn = MobileNetV3_large_FPN()
         n1, n2, n3, n4, n5 = 16, 24, 40, 112, 160
         deblurganv2 = DeblurGANv2(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv3_small':
+        fpn_load_name = './trained_models/mobilenetv3_small_rgb_epoch150_bs256.pth'
         fpn = MobileNetV3_small_FPN()
         n1, n2, n3, n4, n5 = 16, 16, 24, 48, 96
         deblurganv2 = DeblurGANv2(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'ResNet50_BN_DSC':
+        fpn_load_name = './trained_models/resnet50_bn_rgb_epoch150_bs256.pth'
         fpn = ResNet_BN_FPN(Bottleneck_BN, [3, 4, 3, 3])
         n1, n2, n3, n4, n5 = 64, 256, 512, 1024, 2048
         deblurganv2 = DeblurGANv2_DSC(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'ResNet50_IN_DSC':
+        fpn_load_name = './trained_models/resnet50_in_rgb_epoch150_bs256.pth'
         fpn = ResNet_IN_FPN(Bottleneck_IN, [3, 4, 3, 3])
         n1, n2, n3, n4, n5 = 64, 256, 512, 1024, 2048
         deblurganv2 = DeblurGANv2_DSC(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv1_DSC':
+        fpn_load_name = './trained_models/mobilenetv1_rgb_epoch150_bs256.pth'
         fpn = MobileNetV1_FPN()
         n1, n2, n3, n4, n5 = 64, 128, 256, 512, 1024
         deblurganv2 = DeblurGANv2_DSC(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv2_DSC':
-        fpn = MobileNetV2()
+        fpn_load_name = './trained_models/mobilenetv2_rgb_epoch150_bs256.pth'
+        fpn = MobileNetV2_FPN()
         n1, n2, n3, n4, n5 = 16, 24, 32, 96, 320
         deblurganv2 = DeblurGANv2_DSC(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv3_large_DSC':
+        fpn_load_name = './trained_models/mobilenetv3_large_rgb_epoch150_bs256.pth'
         fpn = MobileNetV3_large_FPN()
         n1, n2, n3, n4, n5 = 16, 24, 40, 112, 160
         deblurganv2 = DeblurGANv2_DSC(opt, fpn, n1, n2, n3, n4, n5)
     if opt.network_type == 'MobileNetv3_small_DSC':
+        fpn_load_name = './trained_models/mobilenetv3_small_rgb_epoch150_bs256.pth'
         fpn = MobileNetV3_small_FPN()
         n1, n2, n3, n4, n5 = 16, 16, 24, 48, 96
         deblurganv2 = DeblurGANv2_DSC(opt, fpn, n1, n2, n3, n4, n5)
-    return deblurganv2
+    return fpn_load_name, deblurganv2
 
 def get_discriminator(opt):
     discriminator = NlayerPatchDiscriminator(opt)

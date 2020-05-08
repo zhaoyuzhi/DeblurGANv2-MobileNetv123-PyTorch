@@ -16,7 +16,6 @@ if __name__ == "__main__":
     parser.add_argument('--save_mode', type = str, default = 'epoch', help = 'saving mode, and by_epoch saving is recommended')
     parser.add_argument('--save_by_epoch', type = int, default = 10, help = 'interval between model checkpoints (by epochs)')
     parser.add_argument('--save_by_iter', type = int, default = 100000, help = 'interval between model checkpoints (by iterations)')
-    parser.add_argument('--fpn_load_name', type = str, default = '', help = 'load the pre-trained model with certain epoch')
     parser.add_argument('--perceptualnet_name', type = str, default = '', help = 'load the pre-trained model with certain epoch')
     parser.add_argument('--load_name', type = str, default = '', help = 'load the pre-trained model with certain epoch')
     # GPU parameters

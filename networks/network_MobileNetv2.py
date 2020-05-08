@@ -168,7 +168,7 @@ class MobileNetV2_FPN(nn.Module):
         x4 = self.conv6(x4)                                 # out: B * 96 * 14 * 14
         x5 = self.conv7(x4)                                 # out: B * 160 * 7 * 7
         x5 = self.conv8(x5)                                 # out: B * 320 * 7 * 7
-        return x
+        return x1, x2, x3, x4, x5
 
 if __name__ == "__main__":
     net = MobileNetV2()

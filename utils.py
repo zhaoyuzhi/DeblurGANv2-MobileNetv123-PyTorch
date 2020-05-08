@@ -13,12 +13,12 @@ import networks
 # ----------------------------------------
 def create_generator(opt):
     # Initialize the network
-    generator = networks.get_generator(opt)
+    fpn_load_name, generator = networks.get_generator(opt)
     if opt.pre_train:
         # Init the network
         generator = networks.init_generator(generator, opt)
         print('Initialize network with %s type' % opt.init_type)
-        pretrained_net = torch.load(opt.fpn_load_name)
+        pretrained_net = torch.load(fpn_load_name)
         load_dict(generator.backbone, pretrained_net)
         print('Generator is created!')
     else:
