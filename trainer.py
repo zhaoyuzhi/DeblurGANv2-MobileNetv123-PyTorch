@@ -308,8 +308,8 @@ def Continue_train_WGAN(opt):
             # Extract patch for patch discriminator
             rand_h = random.randint(0, opt.crop_size - opt.patch_size)
             rand_w = random.randint(0, opt.crop_size - opt.patch_size)
-            fake_target_patch = fake_target_patch[:, :, rand_h:rand_h+opt.patch_size, rand_w:rand_w+opt.patch_size]
-            true_target_patch = true_target_patch[:, :, rand_h:rand_h+opt.patch_size, rand_w:rand_w+opt.patch_size]
+            fake_target_patch = fake_target[:, :, rand_h:rand_h+opt.patch_size, rand_w:rand_w+opt.patch_size]
+            true_target_patch = true_target[:, :, rand_h:rand_h+opt.patch_size, rand_w:rand_w+opt.patch_size]
 
             # Global discriminator
             fake_scalar_d = global_discriminator(fake_target.detach())
@@ -330,7 +330,7 @@ def Continue_train_WGAN(opt):
             fake_target = generator(true_input)
             
             # Extract patch for patch discriminator
-            fake_target_patch = fake_target_patch[:, :, rand_h:rand_h+opt.patch_size, rand_w:rand_w+opt.patch_size]
+            fake_target_patch = fake_target[:, :, rand_h:rand_h+opt.patch_size, rand_w:rand_w+opt.patch_size]
 
             # L1 Loss
             Pixellevel_L1_Loss = criterion_L1(fake_target, true_target)
