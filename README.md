@@ -24,7 +24,7 @@ python validation.py
 
 ## 4 Pre-trained models
 
-[Onedrive link](https://portland-my.sharepoint.com/:f:/g/personal/yzzhao2-c_ad_cityu_edu_hk/EvghwTdReyxIl8ccqJc6IVIBwSZXxxTHBXoNuab1M3d1Nw?e=5nHvyX) includes logs, models, and trained_models.
+[Onedrive link](https://portland-my.sharepoint.com/:f:/g/personal/yzzhao2-c_my_cityu_edu_hk/EvghwTdReyxIl8ccqJc6IVIBwSZXxxTHBXoNuab1M3d1Nw?e=vq2EQf) includes logs, models, and trained_models.
 
 ## 5 Samples
 
